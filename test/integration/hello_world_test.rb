@@ -1,6 +1,6 @@
 require 'test/test_helper'
-class HelloWorldTest < RackAttack::IntegrationTest
-  def test_hello
+class HelloWorldSpec < RackAttack::IntegrationSpec
+  it 'should say hello' do
     visit '/'
     assert_see 'Hello Rack!'
   end

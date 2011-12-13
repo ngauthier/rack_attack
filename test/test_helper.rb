@@ -2,17 +2,17 @@ $:.push File.expand_path('../../app', __FILE__)
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require :default, :test
-require 'minitest/unit'
+require 'minitest/spec'
 require 'minitest/autorun'
 require 'rack_attack'
 require 'capybara/dsl'
 
 Capybara.app = RackAttack::Application
 
-class RackAttack::TestCase < MiniTest::Unit::TestCase
+class RackAttack::Spec < MiniTest::Spec
 end
 
-class RackAttack::IntegrationTest < RackAttack::TestCase
+class RackAttack::IntegrationSpec < RackAttack::Spec
   include Capybara::DSL
 
   def assert_see(content, msg = nil)
@@ -20,7 +20,7 @@ class RackAttack::IntegrationTest < RackAttack::TestCase
   end
 end
 
-class RackAttack::JavascriptTest < RackAttack::IntegrationTest
+class RackAttack::JavascriptSpec < RackAttack::IntegrationSpec
   def setup
     Capybara.current_driver = :webkit
   end
