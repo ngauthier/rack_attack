@@ -6,7 +6,9 @@ require 'minitest/spec'
 require 'minitest/autorun'
 require 'rack_attack'
 require 'capybara/dsl'
+require 'logger'
 
+RackAttack.logger = 'log/test.log'
 Capybara.app = RackAttack::Application
 
 class RackAttack::Spec < MiniTest::Spec
