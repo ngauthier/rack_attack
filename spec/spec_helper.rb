@@ -11,10 +11,10 @@ require 'logger'
 Blurg.logger = 'log/test.log'
 Capybara.app = Blurg::Application
 
-class Blurg::Spec < MiniTest::Spec
+module Blurg::Spec
 end
 
-class Blurg::IntegrationSpec < Blurg::Spec
+module Blurg::IntegrationSpec
   include Capybara::DSL
 
   def assert_see(content, msg = nil)
@@ -22,8 +22,8 @@ class Blurg::IntegrationSpec < Blurg::Spec
   end
 end
 
-class Blurg::JavascriptSpec < Blurg::IntegrationSpec
-  def setup
-    Capybara.current_driver = :webkit
-  end
+module Blurg::JavascriptSpec
+  #before do
+  #  Capybara.current_driver = :webkit
+  #end
 end

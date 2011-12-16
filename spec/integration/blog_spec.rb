@@ -1,6 +1,8 @@
-require 'test/test_helper'
+require 'spec/spec_helper'
 
-class BlogSpec < Blurg::IntegrationSpec
+describe Blurg do
+  include Blurg::IntegrationSpec
+
   it 'should list the posts' do
     visit '/'
     assert_see 'Post 1'
