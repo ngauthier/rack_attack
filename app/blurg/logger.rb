@@ -1,5 +1,5 @@
 require 'logger'
-class RackAttack::Logger
+class Blurg::Logger
   def initialize(stream)
     @logger = Logger.new stream
   end

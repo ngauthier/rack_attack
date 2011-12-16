@@ -1,6 +1,6 @@
 require 'test/test_helper'
 
-class BlogSpec < RackAttack::IntegrationSpec
+class BlogSpec < Blurg::IntegrationSpec
   it 'should list the posts' do
     visit '/'
     assert_see 'Post 1'
