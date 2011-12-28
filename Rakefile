@@ -3,9 +3,14 @@ require 'bundler/setup'
 
 task :default => :test
 
+task :application do
+  require File.expand_path('../app/blurg', __FILE__)
+end
+
 task :test do
-  Dir[File.expand_path('../spec/**/*', __FILE__)].
-    select {|f| f =~ /_test\.rb$/ || f =~ /_spec\.rb$/ }.
+  $:.push File.expand_path('../test', __FILE__)
+  Dir[File.expand_path('../test/**/*', __FILE__)].
+    select {|f| f =~ /_test\.rb$/ }.
     each   {|f| require f         }
 end
 
@@ -17,5 +22,11 @@ namespace :test do
         clear && rake test; \
       done
     })
+  end
+end
+
+namespace :db do
+  task :reset => :application do
+    Blurg::Database.reset
   end
 end

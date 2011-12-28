@@ -1,5 +1,4 @@
-$:.push File.expand_path('../app', __FILE__)
 require 'rubygems'
 require 'bundler/setup'
-require 'blurg'
+require File.expand_path('../app/blurg', __FILE__)
 run Blurg::Application
