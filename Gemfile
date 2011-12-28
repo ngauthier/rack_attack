@@ -6,9 +6,9 @@ gem 'sqlite3'
 gem 'sequel'
 
 group :test do
-  gem 'json'
-  gem 'capybara-webkit'
   gem 'minitest'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do

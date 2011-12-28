@@ -3,9 +3,11 @@ class Blurg::IndexTest < Blurg::IntegrationTest
   include Blurg
 
   def test_list_posts
-    Post.create(title: 'Post 1')
-    Post.create(title: 'Post 2')
-    Post.create(title: 'Post 3')
+    Collections::Posts.create([
+      {title: 'Post 1'},
+      {title: 'Post 2'},
+      {title: 'Post 3'}
+    ])
     visit '/'
     assert_see 'Post 1'
     assert_see 'Post 2'
