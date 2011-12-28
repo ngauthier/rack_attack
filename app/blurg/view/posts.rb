@@ -1,4 +1,4 @@
-class Blurg::Views::Posts
+class Blurg::View::Posts < Blurg::View
   def initialize(posts)
     @posts = posts
   end

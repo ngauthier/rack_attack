@@ -1,4 +1,4 @@
-class Blurg::Models::Post
+class Blurg::Model::Post
   attr_accessor :title
 
   def initialize(attributes = {})

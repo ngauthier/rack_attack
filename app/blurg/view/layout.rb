@@ -1,4 +1,4 @@
-class Blurg::Views::Layout
+class Blurg::View::Layout < Blurg::View
   attr_accessor :view
   def initialize(view)
     self.view = view
@@ -10,6 +10,6 @@ class Blurg::Views::Layout
 
   private
   def self.template
-    @_template ||= File.read(File.expand_path("../../templates/layout.mustache", __FILE__))
+    @_template ||= File.read(File.expand_path("../../template/layout.mustache", __FILE__))
   end
 end

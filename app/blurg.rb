@@ -4,10 +4,10 @@ module Blurg
   autoload :Home,        "blurg/home"
   autoload :Logger,      "blurg/logger"
   autoload :Database,    "blurg/database"
-  autoload :Models,      "blurg/models"
-  autoload :Collections, "blurg/collections"
-  autoload :Controllers, "blurg/controllers"
-  autoload :Views,       "blurg/views"
+  autoload :Model,       "blurg/model"
+  autoload :Collection,  "blurg/collection"
+  autoload :Controller,  "blurg/controller"
+  autoload :View,        "blurg/view"
 
   def self.logger
     @logger ||= Blurg::Logger.new(STDOUT)

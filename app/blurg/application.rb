@@ -1,4 +1,4 @@
 Blurg::Application = Rack::URLMap.new(
-  "/posts" => Blurg::Controllers::Posts,
-  "/" => Blurg::Controllers::Posts::Index
+  "/posts" => Blurg::Controller::Posts,
+  "/" => Blurg::Controller::Posts::Index
 )

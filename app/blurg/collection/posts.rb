@@ -1,4 +1,4 @@
-class Blurg::Collections::Posts
+class Blurg::Collection::Posts
   def self.create(posts = [])
     table do |t|
       Array(posts).each do |post|
@@ -10,7 +10,7 @@ class Blurg::Collections::Posts
   def self.all
     table do |t|
       t.all.map do |row|
-        Blurg::Models::Post.new(row)
+        Blurg::Model::Post.new(row)
       end
     end
   end

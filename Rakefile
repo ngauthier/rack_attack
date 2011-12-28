@@ -19,7 +19,7 @@ namespace :test do
   task :live do
     system(%{
       while inotifywait -qr -e close_write *; do \
-        clear && rake test; \
+        clear && rake test --trace; \
       done
     })
   end
