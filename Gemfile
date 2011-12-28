@@ -4,6 +4,7 @@ gem 'rake'
 gem 'rack'
 gem 'sqlite3'
 gem 'sequel'
+gem 'mustache'
 
 group :test do
   gem 'minitest'

@@ -9,6 +9,7 @@ class Blurg::IndexTest < Blurg::IntegrationTest
       {title: 'Post 3'}
     ])
     visit '/'
+    assert_see 'Blurg'
     assert_see 'Post 1'
     assert_see 'Post 2'
     assert_see 'Post 3'
