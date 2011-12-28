@@ -1,9 +1,12 @@
 class Blurg::View::Posts < Blurg::View
+  attr_accessor :posts
+  template_file 'posts'
+
   def initialize(posts)
-    @posts = posts
+    self.posts = posts.map{|p| Blurg::View::Post.new(p)}
   end
 
   def render
-    @posts.map(&:title).join('<br/>')
+    super :posts => posts
   end
 end

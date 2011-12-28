@@ -1,15 +1,12 @@
 class Blurg::View::Layout < Blurg::View
   attr_accessor :view
+  template_file 'layout'
+
   def initialize(view)
     self.view = view
   end
 
   def render
-    Mustache.render(self.class.template, :content => view.render)
-  end
-
-  private
-  def self.template
-    @_template ||= File.read(File.expand_path("../../template/layout.mustache", __FILE__))
+    super :content => view.render
   end
 end
