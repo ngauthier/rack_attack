@@ -6,7 +6,7 @@ class Blurg::View::Layout < Blurg::View
     self.view = view
   end
 
-  def render
-    super :content => view.render
+  def content
+    view.render
   end
 end

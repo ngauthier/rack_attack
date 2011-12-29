@@ -3,8 +3,8 @@ class Blurg::View
   autoload :Post,   'blurg/view/post'
   autoload :Layout, 'blurg/view/layout'
 
-  def render(attributes = {})
-    Mustache.render(self.class.template, attributes)
+  def render
+    Mustache.render(self.class.template, self)
   end
 
   class << self
