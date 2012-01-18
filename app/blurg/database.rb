@@ -6,7 +6,7 @@ class Blurg::Database
 
   def self.reset
     connection do |c|
-      c.drop_table :posts
+      c.drop_table :posts if c.table_exists? :posts
       c.create_table :posts do
         primary_key :id
         String      :title

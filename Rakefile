@@ -7,7 +7,7 @@ task :application do
   require File.expand_path('../app/blurg', __FILE__)
 end
 
-task :test do
+task :test => 'db:reset' do
   $:.push File.expand_path('../test', __FILE__)
   Dir[File.expand_path('../test/**/*', __FILE__)].
     select {|f| f =~ /_test\.rb$/ }.
@@ -26,6 +26,7 @@ namespace :test do
 end
 
 namespace :db do
+  desc 'reset the database'
   task :reset => :application do
     Blurg::Database.reset
   end
