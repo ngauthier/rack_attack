@@ -1,9 +1,8 @@
 require 'test_helper'
 class Blurg::IndexTest < Blurg::IntegrationTest
-  include Blurg
 
   def test_list_posts
-    Collection::Posts.create([
+    Blurg::Collection::Posts.create([
       {title: 'Post 1'},
       {title: 'Post 2'},
       {title: 'Post 3'}

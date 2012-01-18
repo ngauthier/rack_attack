@@ -1,4 +1,4 @@
-class Blurg::View::Layout < Blurg::View
+class Blurg::View::Layout < Blurg::View::Base
   attr_accessor :view
   template_file 'layout'
 
@@ -7,6 +7,6 @@ class Blurg::View::Layout < Blurg::View
   end
 
   def content
-    view.render
+    view.to_html
   end
 end

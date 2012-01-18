@@ -1,14 +1,12 @@
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require :default, :test
-require File.expand_path('../../app/blurg', __FILE__)
+require File.expand_path('../../lib/blurg', __FILE__)
 require 'minitest/unit'
 require 'minitest/autorun'
 require 'capybara/dsl'
-require 'logger'
 
-Blurg.logger = 'log/test.log'
-Capybara.app = Blurg::Application
+Capybara.app = Rack::CommonLogger.new(Blurg.new, File.new('log/test.log', 'w'))
 
 class Blurg::Test < MiniTest::Unit::TestCase
 end

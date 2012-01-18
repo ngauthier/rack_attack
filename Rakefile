@@ -7,8 +7,9 @@ task :application do
   require File.expand_path('../app/blurg', __FILE__)
 end
 
-task :test => 'db:reset' do
+task :test do
   $:.push File.expand_path('../test', __FILE__)
+  $:.push File.expand_path('../lib', __FILE__)
   Dir[File.expand_path('../test/**/*', __FILE__)].
     select {|f| f =~ /_test\.rb$/ }.
     each   {|f| require f         }
