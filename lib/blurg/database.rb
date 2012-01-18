@@ -1,15 +1,17 @@
 require 'sequel'
 class Blurg::Database
-  def self.connection
-    yield Sequel.connect('sqlite://db/blurg.db')
-  end
+  class << self
+    def connection(url = ENV['DATABASE_URL'])
+      yield Sequel.connect(url)
+    end
 
-  def self.reset
-    connection do |c|
-      c.drop_table :posts if c.table_exists? :posts
-      c.create_table :posts do
-        primary_key :id
-        String      :title
+    def reset
+      connection do |c|
+        c.drop_table :posts if c.table_exists? :posts
+        c.create_table :posts do
+          primary_key :id
+          String      :title
+        end
       end
     end
   end

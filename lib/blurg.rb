@@ -6,9 +6,9 @@ class Blurg
   autoload :Page,        "blurg/page"
   autoload :View,        "blurg/view"
 
-  def initialize
+  def initialize(options = {})
     @app = Rack::URLMap.new(
-      "/" => Blurg::Page::Posts::Index
+      "/" => Page::Posts::Index
     )
   end
 

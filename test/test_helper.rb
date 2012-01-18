@@ -1,12 +1,14 @@
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require :default, :test
-require File.expand_path('../../lib/blurg', __FILE__)
+require 'blurg'
 require 'minitest/unit'
 require 'minitest/autorun'
 require 'capybara/dsl'
+require 'tempfile'
 
-Capybara.app = Rack::CommonLogger.new(Blurg.new, File.new('log/test.log', 'w'))
+ENV['DATABASE_URL'] = "sqlite://#{Tempfile.new('blurg').path}"
+Capybara.app = Blurg.new
 
 class Blurg::Test < MiniTest::Unit::TestCase
 end
