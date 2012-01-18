@@ -1,9 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require :default, :test
-require 'blurg'
-require 'minitest/unit'
-require 'minitest/autorun'
+
 require 'capybara/dsl'
 require 'tempfile'
 

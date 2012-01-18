@@ -1,9 +1,4 @@
 require 'rubygems'
-
 require 'bundler/setup'
-Bundler.require :default
-
-$:.push File.expand_path('../lib', __FILE__)
-require 'blurg'
-
+Bundler.require :default, ENV['RACK_ENV']
 run Blurg.new
