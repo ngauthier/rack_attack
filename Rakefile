@@ -11,11 +11,11 @@ end
 namespace :test do
   desc 'Continuously run tests'
   task :live do
-    system(%{
+    exec %{
       while inotifywait -qr -e close_write *; do \
         clear && time rake test --trace; \
       done
-    })
+    }
   end
 end
 
