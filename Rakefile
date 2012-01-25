@@ -11,18 +11,14 @@ end
 namespace :test do
   desc 'Continuously run tests'
   task :live do
-    exec %{
-      while inotifywait -qr -e close_write *; do \
-        clear && time rake test --trace; \
-      done
-    }
+    exec(%{while inotifywait -qr -e close_write *; do clear; rake test; done})
   end
 end
 
 task :environment do
   require 'rubygems'
   require 'bundler/setup'
-  Bundler.require :default
+  Bundler.require :default, (ENV['RACK_ENV'] || 'development')
 end
 
 namespace :db do

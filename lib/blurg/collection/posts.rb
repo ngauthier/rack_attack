@@ -1,9 +1,7 @@
 class Blurg::Collection::Posts
-  def self.create(posts = [])
+  def self.create(*attributes)
     table do |t|
-      Array(posts).each do |post|
-        t.insert(post)
-      end
+      t.insert(*attributes)
     end
   end
 

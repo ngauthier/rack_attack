@@ -1,12 +1,13 @@
 class Blurg::View::Layout < Blurg::View::Base
-  attr_accessor :view
+  attr_accessor :views
   template_file 'layout'
 
-  def initialize(view)
-    self.view = view
+  def initialize(*views)
+    self.views = views
   end
 
   def content
-    view.to_html
+    views.map(&:to_html).join
   end
+
 end

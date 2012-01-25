@@ -11,6 +11,7 @@ class Blurg::Database
         c.create_table :posts do
           primary_key :id
           String      :title
+          String      :body
         end
       end
     end
