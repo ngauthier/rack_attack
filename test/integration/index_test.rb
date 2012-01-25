@@ -14,8 +14,8 @@ class Blurg::IndexTest < Blurg::IntegrationTest
 
   def test_create_a_post
     visit '/'
-    fill_in :title, :with => 'Foo post'
-    fill_in :body,  :with => 'This is the contents of the foo post'
+    fill_in 'Title', :with => 'Foo post'
+    fill_in 'Body',  :with => 'This is the contents of the foo post'
     click_button 'Post'
 
     assert_see 'Post posted'

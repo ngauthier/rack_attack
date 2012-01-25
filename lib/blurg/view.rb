@@ -4,22 +4,13 @@ class Blurg::View
   autoload :NewPost, 'blurg/view/new_post'
   autoload :Layout,  'blurg/view/layout'
 
-  class Base
-    def to_html
-      Mustache.render(self.class.template, self)
-    end
+  class Base < Mustache
+    self.template_path = File.expand_path('../template', __FILE__)
+    self.view_namespace = 'Blurg::View'
+    self.raise_on_context_miss = true
 
     def each
       yield to_html
-    end
-
-    class << self
-      attr_accessor :template
-      def template_file(name)
-        self.template = File.read(File.expand_path(
-          "../template/#{name}.mustache", __FILE__
-        ))
-      end
     end
   end
 end

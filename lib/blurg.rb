@@ -1,4 +1,3 @@
-require 'blurg/delegation'
 class Blurg
   autoload :Database,    "blurg/database"
   autoload :Model,       "blurg/model"

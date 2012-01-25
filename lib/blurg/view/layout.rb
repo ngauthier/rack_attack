@@ -1,13 +1,9 @@
 class Blurg::View::Layout < Blurg::View::Base
-  attr_accessor :views
-  template_file 'layout'
+  attr_accessor :content
+  attr_accessor :alert
 
-  def initialize(*views)
-    self.views = views
+  def initialize(options = {})
+    self.alert = options.fetch(:alert) { nil }
+    self.content = options.fetch(:content) { "" }
   end
-
-  def content
-    views.map(&:to_html).join
-  end
-
 end
