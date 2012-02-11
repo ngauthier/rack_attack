@@ -1,8 +1,14 @@
 {
-  "name": "Rack Attack",
+  "name": "Ruby Patterns for the Web",
   "sections": [
     {"section":"intro"}, 
-    {"section":"hello_world"} ,
-    {"section":"todo"} 
+    {"section":"traditional_mvc"},
+    {"section":"model2"},
+    {"section":"rails_mvc_and_model2"},
+    {"section":"framework_vs_library"},
+    {"section":"library_objects"},
+    {"section":"frameworks_and_libraries"},
+    {"section":"object_composition"},
+    {"section":"conclusion"}
   ]
 }
